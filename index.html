@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Happy Birthday Papa 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #122040;
+    --navy-light: #1a2f55;
+    --gold: #c9a84c;
+    --gold-light: #e8c96e;
+    --gold-pale: #f5e6b8;
+    --cream: #fdf8ee;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--navy);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cream);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ===== PAGE SYSTEM ===== */
+  .page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .page.active { display: flex; flex-direction: column; }
+
+  /* ===== GOLD ORNAMENT ===== */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+    opacity: 0.6;
+  }
+
+  /* ===== STARS BG ===== */
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: var(--gold-light);
+    border-radius: 50%;
+    animation: twinkle var(--dur, 3s) infinite alternate;
+    opacity: 0.3;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.1; transform: scale(0.8); }
+    to { opacity: 0.6; transform: scale(1.2); }
+  }
+
+  /* ===== PAGE 1: INTRO ===== */
+  #page-intro {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    gap: 0;
+  }
+
+  .cake-sketch {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 30px;
+    position: relative;
+    animation: floatUp 3s ease-in-out infinite alternate;
+  }
+  @keyframes floatUp {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-12px); }
+  }
+
+  .cake-svg { width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(201,168,76,0.4)); }
+
+  .intro-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.8rem;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 8px;
+    animation: fadeSlideUp 1s ease forwards;
+    text-shadow: 0 0 40px rgba(201,168,76,0.5);
+  }
+
+  .intro-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--cream);
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    animation: fadeSlideUp 1.2s ease forwards;
+  }
+
+  .intro-question {
+    font-size: 1.15rem;
+    color: var(--gold-pale);
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    animation: fadeSlideUp 1.4s ease forwards;
+    max-width: 300px;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    animation: fadeSlideUp 1.6s ease forwards;
+  }
+
+  .btn-choice {
+    padding: 14px 28px;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-choice::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: -1;
+  }
+  .btn-choice:hover::before, .btn-choice:active::before { transform: translateX(0); }
+  .btn-choice:hover, .btn-choice:active { color: var(--navy); }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== PAGE 2: SPECIAL FOR YOU ===== */
+  #page-special {
+    padding: 50px 24px 40px;
+    align-items: center;
+    gap: 0;
+  }
+
+  .special-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .special-sub {
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .special-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  .special-tag {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    color: var(--gold);
+    opacity: 0.8;
+  }
+
+  .love-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .love-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 4px;
+    padding: 28px 16px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .love-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .love-card:hover::before, .love-card:active::before { opacity: 1; }
+  .love-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,168,76,0.2); }
+
+  .love-number {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .love-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .love-label {
+    font-size: 0.78rem;
+    color: var(--gold-pale);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .gold-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 30px auto 0;
+  }
+
+  /* ===== PAGE 3: PHOTOS ===== */
+  #page-photos {
+    padding: 30px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 380px;
+    margin: 24px 0;
+  }
+
+  .photo-slot {
+    aspect-ratio: 1;
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 2rem;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+   .photo-slot img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: var(--navy);
+  }
+  .photo-slot:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16/9; }
+  .photo-slot-label { font-size: 0.7rem; color: var(--gold-pale); letter-spacing: 2px; text-transform: uppercase; }
+
+  .photo-slot:hover { border-color: var(--gold); }
+
+  /* photo frame decoration */
+  .photo-corner {
+    position: absolute;
+    width: 16px; height: 16px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .photo-corner.tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+  .photo-corner.tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+  .photo-corner.bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+  .photo-corner.br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+
+  /* ===== PAGE 4: SONG ===== */
+  #page-song {
+    padding: 30px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .vinyl-frame {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+  }
+
+  .vinyl-record {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #1a1a2e 25%, #16213e 25.5%, #16213e 30%, #0f3460 30.5%, #0f3460 35%, #16213e 35.5%,
+    #16213e 40%, #0f3460 40.5%, #0f3460 45%, #16213e 45.5%, #16213e 50%, #1a1a2e 50.5%);
+    border: 2px solid rgba(201,168,76,0.4);
+    box-shadow: 0 0 40px rgba(201,168,76,0.2), inset 0 0 20px rgba(0,0,0,0.5);
+    animation: spin 8s linear infinite;
+    position: relative;
+  }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .vinyl-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px;
+    background: var(--navy-mid);
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.55rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-align: center;
+    z-index: 2;
+    animation: spinReverse 8s linear infinite;
+  }
+  @keyframes spinReverse { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(-360deg); } }
+
+  /* Doily border around vinyl */
+  .vinyl-frame::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px dashed rgba(201,168,76,0.3);
+  }
+  .vinyl-frame::after {
+    content: '';
+    position: absolute;
+    inset: -22px;
+    border-radius: 50%;
+    border: 1px dotted rgba(201,168,76,0.2);
+  }
+
+  .song-title-big {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--gold-light);
+    text-shadow: 0 0 30px rgba(201,168,76,0.4);
+  }
+
+  .song-artist {
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .song-play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .song-play-btn:hover { background: var(--gold); color: var(--navy); }
+
+  /* ===== PAGE 5: VOUCHERS ===== */
+  #page-voucher {
+    padding: 30px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .voucher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 380px;
+    margin: 24px 0;
+  }
+
+  .voucher {
+    display: flex;
+    background: var(--cream);
+    color: var(--navy);
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+  }
+  .voucher:hover { transform: translateX(4px); }
+
+  .voucher-left {
+    background: var(--navy);
+    width: 70px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+    border-right: 3px dashed rgba(201,168,76,0.4);
+    position: relative;
+  }
+
+  .voucher-left::before {
+    content: '';
+    position: absolute;
+    top: -10px; right: -8px;
+    width: 16px; height: 16px;
+    background: var(--navy);
+    border-radius: 50%;
+  }
+  .voucher-left::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; right: -8px;
+    width: 16px; height: 16px;
+    background: var(--navy);
+    border-radius: 50%;
+  }
+
+  .voucher-num {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+  }
+
+  .voucher-body {
+    flex: 1;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .voucher-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .voucher-desc {
+    font-size: 0.75rem;
+    color: var(--navy-light);
+    text-align: left;
+    font-style: italic;
+  }
+
+  .barcode {
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+    display: flex;
+    gap: 1.5px;
+    align-items: flex-end;
+  }
+  .barcode-line {
+    width: 2px;
+    background: var(--navy);
+    opacity: 0.4;
+  }
+
+  /* ===== PAGE 6: LETTER ===== */
+  #page-letter {
+    padding: 30px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .envelope-wrap {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .envelope {
+    width: 260px;
+    height: 170px;
+    background: linear-gradient(135deg, #f5e6b8, #fdf8ee);
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.5);
+    transition: transform 0.5s;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  /* envelope flap */
+  .envelope-flap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 80px solid #e8c96e;
+    z-index: 10;
+    transform-origin: top center;
+    transition: transform 0.6s ease;
+  }
+  .envelope-flap.open { transform: rotateX(180deg); }
+
+  .envelope-left {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 0;
+    border-left: 130px solid #e0d09e;
+    border-top: 80px solid transparent;
+  }
+  .envelope-right {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 0; height: 0;
+    border-right: 130px solid #d4c490;
+    border-top: 80px solid transparent;
+  }
+  .envelope-bottom {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-bottom: 100px solid #f0e0a0;
+  }
+
+  .envelope-seal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 50%;
+    z-index: 20;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Great Vibes', cursive;
+    color: var(--navy);
+    font-size: 1.3rem;
+    box-shadow: 0 0 15px rgba(201,168,76,0.6);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .envelope-seal:hover { transform: translate(-50%, -50%) scale(1.1); }
+
+  .letter-card {
+    display: none;
+    width: 100%;
+    max-width: 340px;
+    background: var(--cream);
+    padding: 30px 24px;
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    animation: letterOpen 0.6s ease forwards;
+  }
+  .letter-card.visible { display: block; }
+
+  @keyframes letterOpen {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .letter-header {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .letter-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(201,168,76,0.4);
+    margin-bottom: 16px;
+  }
+
+  .letter-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+    line-height: 1.9;
+    white-space: pre-wrap;
+  }
+
+  .letter-sign {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    color: var(--navy);
+    text-align: right;
+    margin-top: 16px;
+  }
+
+  /* corner ornaments on letter */
+  .letter-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .letter-corner.tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+  .letter-corner.tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+  .letter-corner.bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+  .letter-corner.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+  /* ===== BACK BUTTON ===== */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+  .back-btn:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+
+  /* ===== GOLD LINE SEPARATOR ===== */
+  .gold-line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+
+  /* ===== CONFETTI ON INTRO ===== */
+  .confetti-piece {
+    position: fixed;
+    width: 6px;
+    height: 10px;
+    opacity: 0;
+    animation: confettiFall var(--dur, 4s) var(--delay, 0s) ease-in forwards;
+    z-index: 100;
+    pointer-events: none;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ===== SPARKLES ===== */
+  .sparkle {
+    position: absolute;
+    pointer-events: none;
+    animation: sparkleAnim 1.5s ease forwards;
+    font-size: 1rem;
+    z-index: 50;
+  }
+  @keyframes sparkleAnim {
+    0% { opacity: 1; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+    100% { opacity: 0; transform: scale(0) rotate(360deg) translateY(-30px); }
+  }
+
+  /* Relative z for pages */
+  .page > * { position: relative; z-index: 1; }
+
+  /* Special for you page animation */
+  .love-card { animation: fadeSlideUp 0.5s ease both; }
+  .love-card:nth-child(1) { animation-delay: 0.1s; }
+  .love-card:nth-child(2) { animation-delay: 0.2s; }
+  .love-card:nth-child(3) { animation-delay: 0.3s; }
+  .love-card:nth-child(4) { animation-delay: 0.4s; }
+
+  .page-subtitle {
+    font-style: italic;
+    color: var(--gold-pale);
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Stars background -->
+<div class="stars" id="stars"></div>
+
+<!-- ===== PAGE 1: INTRO ===== -->
+<div class="page active" id="page-intro">
+  <!-- Cake SVG -->
+  <div class="cake-sketch">
+    <svg class="cake-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Candles -->
+      <rect x="70" y="50" width="8" height="30" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <rect x="96" y="42" width="8" height="38" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <rect x="122" y="50" width="8" height="30" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <!-- Flames -->
+      <ellipse cx="74" cy="47" rx="5" ry="7" fill="none" stroke="#e8c96e" stroke-width="1.5"/>
+      <ellipse cx="100" cy="39" rx="5" ry="7" fill="none" stroke="#e8c96e" stroke-width="1.5"/>
+      <ellipse cx="126" cy="47" rx="5" ry="7" fill="none" stroke="#e8c96e" stroke-width="1.5"/>
+      <!-- Top tier -->
+      <ellipse cx="100" cy="82" rx="35" ry="10" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <rect x="65" y="82" width="70" height="28" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <ellipse cx="100" cy="110" rx="35" ry="10" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <!-- Decoration top tier -->
+      <path d="M 70 92 Q 85 85 100 92 Q 115 99 130 92" fill="none" stroke="#e8c96e" stroke-width="1.5"/>
+      <!-- Bottom tier -->
+      <ellipse cx="100" cy="110" rx="48" ry="13" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <rect x="52" y="110" width="96" height="36" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <ellipse cx="100" cy="146" rx="48" ry="13" fill="none" stroke="#c9a84c" stroke-width="2"/>
+      <!-- Decoration bottom tier -->
+      <path d="M 58 126 Q 79 118 100 126 Q 121 134 142 126" fill="none" stroke="#e8c96e" stroke-width="1.5"/>
+      <!-- Stars around cake -->
+      <text x="30" y="80" fill="#c9a84c" font-size="12" opacity="0.7">✦</text>
+      <text x="155" y="95" fill="#c9a84c" font-size="10" opacity="0.6">✦</text>
+      <text x="20" y="130" fill="#c9a84c" font-size="8" opacity="0.5">✦</text>
+      <text x="162" y="140" fill="#c9a84c" font-size="8" opacity="0.5">✦</text>
+      <!-- Plate -->
+      <ellipse cx="100" cy="157" rx="56" ry="8" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <h1 class="intro-title">Happy Birthday</h1>
+  <h2 class="intro-name">MAI PAPSKIII 🎂</h2>
+
+  <div class="gold-line" style="margin: 16px auto 24px;"></div>
+
+  <p class="intro-question">
+    Are you excited to see what<br>
+    <em>Geya</em> has prepared for Papa?
+  </p>
+
+  <div class="btn-group">
+    <button class="btn-choice" onclick="goToSpecial()">YESSS!!!</button>
+    <button class="btn-choice" onclick="goToSpecial()">DUH!! </button>
+  </div>
+</div>
+
+<!-- ===== PAGE 2: SPECIAL FOR YOU ===== -->
+<div class="page" id="page-special">
+  <div class="special-header">
+    <p class="special-sub">✦ from; Jollyvenne Gyara ✦</p>
+    <h2 class="special-title">Special 4 You</h2>
+    <p class="special-tag">four Love</p>
+    <div class="gold-line" style="margin-top: 16px;"></div>
+  </div>
+
+  <div class="love-grid">
+    <div class="love-card" onclick="showPage('page-photos')">
+      <span class="love-icon"></span>
+      <div class="love-number">1</div>
+      <p class="love-label">Our<br>Gallery</p>
+    </div>
+    <div class="love-card" onclick="showPage('page-song')">
+      <span class="love-icon"></span>
+      <div class="love-number">2</div>
+      <p class="love-label">Lany's<br>Song</p>
+    </div>
+    <div class="love-card" onclick="showPage('page-voucher')">
+      <span class="love-icon"></span>
+      <div class="love-number">3</div>
+      <p class="love-label">Birthday<br>Privilege</p>
+    </div>
+    <div class="love-card" onclick="showPage('page-letter')">
+      <span class="love-icon"></span>
+      <div class="love-number">4</div>
+      <p class="love-label">This<br>Letter</p>
+    </div>
+  </div>
+
+  <div class="gold-divider"></div>
+</div>
+
+<!-- ===== PAGE 3: GALLERY ===== -->
+<div class="page" id="page-photos">
+  <div style="text-align:center; padding: 50px 20px 20px;">
+    <p class="ornament">✦ ✦ ✦</p>
+    <h2 class="page-title" style="margin-top:12px;">Happy Birthday</h2>
+    <h1 style="font-family:'Great Vibes',cursive; font-size:2.6rem; color:var(--gold-light);">Papah!</h1>
+    <div class="gold-line" style="margin:16px auto;"></div>
+    <p class="page-subtitle">Super hero paling tampan</p>
+  </div>
+
+  <div class="photo-grid" style="margin: 0 auto; padding: 0 20px;">
+    <div class="photo-slot">
+      <div class="photo-corner tl"></div>
+      <div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div>
+      <div class="photo-corner br"></div>
+      <img src="/sangwon img/sangwoon1.jpg">
+      <span class="photo-slot-label">Foto 1</span>
+    </div>
+    <div class="photo-slot">
+      <div class="photo-corner tl"></div>
+      <div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div>
+      <div class="photo-corner br"></div>
+      <img src="/sangwon img/2.jpg">
+      <span class="photo-slot-label">Foto 2</span>
+    </div>
+    <div class="photo-slot">
+      <div class="photo-corner tl"></div>
+      <div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div>
+      <div class="photo-corner br"></div>
+      <img src="/sangwon img/ultah.jpg">
+      <span class="photo-slot-label">Foto Favorit</span>
+    </div>
+    <div class="photo-slot">
+      <div class="photo-corner tl"></div>
+      <div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div>
+      <div class="photo-corner br"></div>
+      <img src="/sangwon img/fotbar ijo.jpeg">
+      <span class="photo-slot-label">Foto 3</span>
+    </div>
+    <div class="photo-slot">
+      <div class="photo-corner tl"></div>
+      <div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div>
+      <div class="photo-corner br"></div>
+      <img src="/sangwon img/fotbar itik.jpeg">
+      <span class="photo-slot-label">Foto 4</span>
+    </div>
+  </div>
+
+  <p style="font-size:0.75rem; color:var(--gold); opacity:0.6; text-align:center; padding: 10px 20px; font-style:italic;">
+
+  </p>
+
+  <div style="text-align:center; padding-bottom: 40px;">
+    <button class="back-btn" onclick="showPage('page-special')">← Kembali</button>
+  </div>
+</div>
+
+<!-- ===== PAGE 4: SONG ===== -->
+<div class="page" id="page-song">
+  <div style="text-align:center; padding: 40px 20px 20px;">
+    <p class="ornament">✦ ✦ ✦</p>
+    <p style="font-size:0.8rem; color:var(--gold); letter-spacing:4px; text-transform:uppercase; margin-top:10px;">This Song is For</p>
+  </div>
+
+  <div class="vinyl-frame" style="margin: 10px auto;">
+    <div class="vinyl-record">
+      <div class="vinyl-center">PAPA ♥</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding: 20px;">
+    <div class="song-title-big">You!</div>
+    <p class="song-artist">— LANY —</p>
+    <div class="gold-line" style="margin: 16px auto;"></div>
+    <p style="font-size:0.95rem; color:var(--gold-pale); font-style:italic; margin-bottom: 24px; line-height:1.7;">
+      Geya suka banget denger Lany<br>lagu ini yang menggambarkan sayangnya Geya ke Papa
+    </p>
+    <a class="song-play-btn" href="https://www.youtube.com/results?search_query=LANY+You+official" target="_blank">
+      <div id="ytPlayer" style="display:none; width:100%; max-width:340px; border-radius:8px; overflow:hidden; margin: 0 auto;">
+  <iframe width="100%" height="80" 
+    src="https://youtu.be/HEAn4FqXFY4?si=HbFOLDbT7euagZ0H" 
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
+</div>
+
+<button class="song-play-btn" onclick="
+  document.getElementById('ytPlayer').style.display='block';
+  this.style.display='none';
+">
+  ▶ &nbsp; Putar Lagu
+</button>
+    </a>
+  </div>
+
+  <div style="text-align:center; padding-bottom: 40px;">
+    <button class="back-btn" onclick="showPage('page-special')">← Kembali</button>
+  </div>
+</div>
+
+<!-- ===== PAGE 5: VOUCHER ===== -->
+<div class="page" id="page-voucher">
+  <div style="text-align:center; padding: 40px 20px 10px;">
+    <p class="ornament">✦ ✦ ✦</p>
+    <h2 class="page-title" style="margin-top:12px;">Birthday Privilege</h2>
+    <p class="page-subtitle">Hadiah dari Geyaa</p>
+    <div class="gold-line" style="margin: 14px auto;"></div>
+  </div>
+
+  <div class="voucher-list" style="margin: 0 auto; padding: 0 20px;">
+    <!-- Voucher 1 -->
+    <div class="voucher">
+      <div class="voucher-left">
+        <div class="voucher-num">1</div>
+      </div>
+      <div class="voucher-body">
+        <div class="voucher-title">Playlist Buat Papa</div>
+        <div class="voucher-desc">Playlist lagu khusus buat Papa</div>
+        <div class="barcode">
+          <div class="barcode-line" style="height:20px"></div>
+          <div class="barcode-line" style="height:14px"></div>
+          <div class="barcode-line" style="height:22px"></div>
+          <div class="barcode-line" style="height:16px"></div>
+          <div class="barcode-line" style="height:20px"></div>
+          <div class="barcode-line" style="height:12px"></div>
+          <div class="barcode-line" style="height:18px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voucher 2 -->
+    <div class="voucher">
+      <div class="voucher-left">
+        <div class="voucher-num">2</div>
+      </div>
+      <div class="voucher-body">
+        <div class="voucher-title">5 Vidcu buat Sehari</div>
+        <div class="voucher-desc">Nanti Geya post vidcu yang kemarin Geya sempet janji, 5x sehari!. Buat harinya, sesuai request Papa!</div>
+        <div class="barcode">
+          <div class="barcode-line" style="height:16px"></div>
+          <div class="barcode-line" style="height:22px"></div>
+          <div class="barcode-line" style="height:14px"></div>
+          <div class="barcode-line" style="height:20px"></div>
+          <div class="barcode-line" style="height:18px"></div>
+          <div class="barcode-line" style="height:12px"></div>
+          <div class="barcode-line" style="height:22px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voucher 3 -->
+    <div class="voucher">
+      <div class="voucher-left">
+        <div class="voucher-num">3</div>
+      </div>
+      <div class="voucher-body">
+        <div class="voucher-title">Free Gift</div>
+        <div class="voucher-desc">Tebak untuk ini Geya bakal kasi apa...</div>
+        <div class="barcode">
+          <div class="barcode-line" style="height:22px"></div>
+          <div class="barcode-line" style="height:14px"></div>
+          <div class="barcode-line" style="height:18px"></div>
+          <div class="barcode-line" style="height:20px"></div>
+          <div class="barcode-line" style="height:12px"></div>
+          <div class="barcode-line" style="height:22px"></div>
+          <div class="barcode-line" style="height:16px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voucher 4 -->
+    <div class="voucher">
+      <div class="voucher-left">
+        <div class="voucher-num">4</div>
+      </div>
+      <div class="voucher-body">
+        <div class="voucher-title">Yes Day! </div>
+        <div class="voucher-desc">Seharian Geya bakal bilang "YES" buat semua yang Papa bilang</div>
+        <div class="barcode">
+          <div class="barcode-line" style="height:18px"></div>
+          <div class="barcode-line" style="height:22px"></div>
+          <div class="barcode-line" style="height:12px"></div>
+          <div class="barcode-line" style="height:20px"></div>
+          <div class="barcode-line" style="height:16px"></div>
+          <div class="barcode-line" style="height:22px"></div>
+          <div class="barcode-line" style="height:14px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding: 10px 0 40px;">
+    <button class="back-btn" onclick="showPage('page-special')">← Kembali</button>
+  </div>
+</div>
+
+<!-- ===== PAGE 6: LETTER ===== -->
+<div class="page" id="page-letter">
+  <div style="text-align:center; padding: 40px 20px 20px;">
+    <p class="ornament">✦ ✦ ✦</p>
+    <h2 class="page-title" style="margin-top:12px;">Surat Untuk Papa</h2>
+    <p class="page-subtitle">Tap amplop untuk membuka 💌</p>
+    <div class="gold-line" style="margin: 14px auto 28px;"></div>
+  </div>
+
+  <div class="envelope-wrap" id="envelopeWrap" style="text-align:center;" onclick="openLetter()">
+    <div class="envelope" id="envelope">
+      <div class="envelope-left"></div>
+      <div class="envelope-right"></div>
+      <div class="envelope-bottom"></div>
+      <div class="envelope-flap" id="envFlap"></div>
+      <div class="envelope-seal">G</div>
+    </div>
+  </div>
+
+  <div class="letter-card" id="letterCard" style="margin: 24px auto; padding: 30px 24px;">
+    <div class="letter-corner tl"></div>
+    <div class="letter-corner tr"></div>
+    <div class="letter-corner bl"></div>
+    <div class="letter-corner br"></div>
+    <div class="letter-header">Dear Papa,</div>
+    <div class="letter-line"></div>
+    <div class="letter-body">Haii Pah...
+
+Selamat ulang tahun, Papa! 🎂
+
+Geya mau bilang, makasih banyak ya udah jadi orang yang paling baik, paling sabar, dan paling paling. Kadang emang Geya bikin papa repot, tapi Papa tetep selalu ada buat Geya.
+
+Semoga di tahun ini Papa selalu sehat, bahagia, dan semua doa Papa dikabulin sama Tuhan. Papa harus tau, Akhir akhirni jauhnya kita, bikin Geya selalu kangen Papa.
+
+Papa sehat sehat yahh.. istirahat yang cukup. Semoga juga selalu mendapat hari hari menyenangkan-!!
+
+Love you to the moon and back, Papa.
+
+Selalu dan untuk selamanya,</div>
+    <div class="letter-sign">Geya 💛</div>
+  </div>
+
+  <div style="text-align:center; padding-bottom: 40px;">
+    <button class="back-btn" onclick="showPage('page-special')">← Kembali</button>
+  </div>
+</div>
+
+<script>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 60; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 3 + 1;
+    star.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      --dur: ${Math.random() * 3 + 2}s;
+      animation-delay: ${Math.random() * 3}s;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  // Page navigation
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function goToSpecial() {
+    launchConfetti();
+    setTimeout(() => showPage('page-special'), 400);
+  }
+
+  // Confetti
+  function launchConfetti() {
+    const colors = ['#c9a84c', '#e8c96e', '#f5e6b8', '#0a1628', '#122040'];
+    for (let i = 0; i < 40; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        --dur: ${Math.random() * 2 + 2}s;
+        --delay: ${Math.random() * 0.5}s;
+        transform: rotate(${Math.random() * 360}deg);
+        border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+        width: ${Math.random() * 8 + 4}px;
+        height: ${Math.random() * 8 + 4}px;
+      `;
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 4000);
+    }
+  }
+
+  // Letter open
+  let letterOpened = false;
+  function openLetter() {
+    if (letterOpened) return;
+    letterOpened = true;
+    document.getElementById('envFlap').classList.add('open');
+    setTimeout(() => {
+      document.getElementById('envelope').style.transform = 'translateY(10px)';
+      document.getElementById('letterCard').classList.add('visible');
+    }, 600);
+  }
+
+  // Sparkle on love cards click
+  document.querySelectorAll('.love-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      for (let i = 0; i < 5; i++) {
+        const sp = document.createElement('div');
+        sp.className = 'sparkle';
+        sp.textContent = ['✦','✨','⭐','💛','✦'][i];
+        sp.style.cssText = `
+          left: ${e.clientX + (Math.random()-0.5)*60}px;
+          top: ${e.clientY + (Math.random()-0.5)*60}px;
+          animation-delay: ${i*0.1}s;
+          position: fixed;
+        `;
+        document.body.appendChild(sp);
+        setTimeout(() => sp.remove(), 1500);
+      }
+    });
+  });
+</script>
+</body>
+</html>
